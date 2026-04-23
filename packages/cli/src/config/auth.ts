@@ -18,6 +18,10 @@ export async function validateAuthMethod(
     return null;
   }
 
+  if (authMethod === AuthType.LOCAL) {
+    return null;
+  }
+
   if (authMethod === AuthType.USE_GEMINI) {
     const key = process.env['GEMINI_API_KEY'] || (await loadApiKey());
     if (!key) {
