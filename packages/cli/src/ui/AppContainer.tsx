@@ -104,6 +104,9 @@ import { useSettingsCommand } from './hooks/useSettingsCommand.js';
 import { useModelCommand } from './hooks/useModelCommand.js';
 import { useVoiceModelCommand } from './hooks/useVoiceModelCommand.js';
 import { useLocalCommand } from './hooks/useLocalCommand.js';
+// --- LOCAL FORK ADDITION (Phase 2.2) ---
+import { useProviderCommand } from './hooks/useProviderCommand.js';
+// --- END LOCAL FORK ADDITION ---
 import { useSlashCommandProcessor } from './hooks/slashCommandProcessor.js';
 import { useVimMode } from './contexts/VimModeContext.js';
 import {
@@ -944,6 +947,10 @@ Logging in with Google... Restarting Gemini CLI to continue.
   } = useVoiceModelCommand();
   const { isLocalDialogOpen, openLocalDialog, closeLocalDialog } =
     useLocalCommand();
+  // --- LOCAL FORK ADDITION (Phase 2.2) ---
+  const { isProviderDialogOpen, openProviderDialog, closeProviderDialog } =
+    useProviderCommand();
+  // --- END LOCAL FORK ADDITION ---
 
   const { toggleVimEnabled } = useVimMode();
 
@@ -970,6 +977,9 @@ Logging in with Google... Restarting Gemini CLI to continue.
       openModelDialog,
       openVoiceModelDialog,
       openLocalDialog,
+      // --- LOCAL FORK ADDITION (Phase 2.2) ---
+      openProviderDialog,
+      // --- END LOCAL FORK ADDITION ---
       openAgentConfigDialog,
       openPermissionsDialog,
       quit: (messages: HistoryItem[]) => {
@@ -1010,6 +1020,9 @@ Logging in with Google... Restarting Gemini CLI to continue.
       openModelDialog,
       openVoiceModelDialog,
       openLocalDialog,
+      // --- LOCAL FORK ADDITION (Phase 2.2) ---
+      openProviderDialog,
+      // --- END LOCAL FORK ADDITION ---
       openAgentConfigDialog,
       setQuittingMessages,
       setDebugMessage,
@@ -2196,6 +2209,10 @@ Logging in with Google... Restarting Gemini CLI to continue.
     isModelDialogOpen ||
 isVoiceModelDialogOpen ||
 isLocalDialogOpen ||    isAgentConfigDialogOpen ||
+    // --- LOCAL FORK ADDITION (Phase 2.2) ---
+    isProviderDialogOpen ||
+    // --- END LOCAL FORK ADDITION ---
+    isAgentConfigDialogOpen ||
     isPermissionsDialogOpen ||
     isAuthenticating ||
     isAuthDialogOpen ||
@@ -2457,6 +2474,10 @@ isLocalDialogOpen ||    isAgentConfigDialogOpen ||
       isModelDialogOpen,
 isVoiceModelDialogOpen,
 isLocalDialogOpen,      isAgentConfigDialogOpen,
+      // --- LOCAL FORK ADDITION (Phase 2.2) ---
+      isProviderDialogOpen,
+      // --- END LOCAL FORK ADDITION ---
+      isAgentConfigDialogOpen,
       selectedAgentName,
       selectedAgentDisplayName,
       selectedAgentDefinition,
@@ -2570,6 +2591,10 @@ isLocalDialogOpen,      isAgentConfigDialogOpen,
       isModelDialogOpen,
 isVoiceModelDialogOpen,
 isLocalDialogOpen,      isAgentConfigDialogOpen,
+      // --- LOCAL FORK ADDITION (Phase 2.2) ---
+      isProviderDialogOpen,
+      // --- END LOCAL FORK ADDITION ---
+      isAgentConfigDialogOpen,
       selectedAgentName,
       selectedAgentDisplayName,
       selectedAgentDefinition,
@@ -2687,6 +2712,11 @@ isLocalDialogOpen,      isAgentConfigDialogOpen,
 openVoiceModelDialog,
       closeVoiceModelDialog,
 closeLocalDialog,      openAgentConfigDialog,
+      // --- LOCAL FORK ADDITION (Phase 2.2) ---
+      openProviderDialog,
+      closeProviderDialog,
+      // --- END LOCAL FORK ADDITION ---
+      openAgentConfigDialog,
       closeAgentConfigDialog,
       openPermissionsDialog,
       closePermissionsDialog,
@@ -2789,6 +2819,11 @@ closeLocalDialog,      openAgentConfigDialog,
 openVoiceModelDialog,
       closeVoiceModelDialog,
 closeLocalDialog,      openAgentConfigDialog,
+      // --- LOCAL FORK ADDITION (Phase 2.2) ---
+      openProviderDialog,
+      closeProviderDialog,
+      // --- END LOCAL FORK ADDITION ---
+      openAgentConfigDialog,
       closeAgentConfigDialog,
       openPermissionsDialog,
       closePermissionsDialog,
