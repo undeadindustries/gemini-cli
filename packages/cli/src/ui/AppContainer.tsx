@@ -103,7 +103,6 @@ import { useEditorSettings } from './hooks/useEditorSettings.js';
 import { useSettingsCommand } from './hooks/useSettingsCommand.js';
 import { useModelCommand } from './hooks/useModelCommand.js';
 import { useVoiceModelCommand } from './hooks/useVoiceModelCommand.js';
-import { useLocalCommand } from './hooks/useLocalCommand.js';
 // --- LOCAL FORK ADDITION (Phase 2.2) ---
 import { useProviderCommand } from './hooks/useProviderCommand.js';
 // --- END LOCAL FORK ADDITION ---
@@ -945,8 +944,6 @@ Logging in with Google... Restarting Gemini CLI to continue.
     openVoiceModelDialog,
     closeVoiceModelDialog,
   } = useVoiceModelCommand();
-  const { isLocalDialogOpen, openLocalDialog, closeLocalDialog } =
-    useLocalCommand();
   // --- LOCAL FORK ADDITION (Phase 2.2) ---
   const { isProviderDialogOpen, openProviderDialog, closeProviderDialog } =
     useProviderCommand();
@@ -976,7 +973,6 @@ Logging in with Google... Restarting Gemini CLI to continue.
       openSessionBrowser,
       openModelDialog,
       openVoiceModelDialog,
-      openLocalDialog,
       // --- LOCAL FORK ADDITION (Phase 2.2) ---
       openProviderDialog,
       // --- END LOCAL FORK ADDITION ---
@@ -1019,7 +1015,6 @@ Logging in with Google... Restarting Gemini CLI to continue.
       openSessionBrowser,
       openModelDialog,
       openVoiceModelDialog,
-      openLocalDialog,
       // --- LOCAL FORK ADDITION (Phase 2.2) ---
       openProviderDialog,
       // --- END LOCAL FORK ADDITION ---
@@ -2207,8 +2202,7 @@ Logging in with Google... Restarting Gemini CLI to continue.
     isThemeDialogOpen ||
     isSettingsDialogOpen ||
     isModelDialogOpen ||
-isVoiceModelDialogOpen ||
-isLocalDialogOpen ||    isAgentConfigDialogOpen ||
+    isVoiceModelDialogOpen ||
     // --- LOCAL FORK ADDITION (Phase 2.2) ---
     isProviderDialogOpen ||
     // --- END LOCAL FORK ADDITION ---
@@ -2472,8 +2466,7 @@ isLocalDialogOpen ||    isAgentConfigDialogOpen ||
       isSettingsDialogOpen,
       isSessionBrowserOpen,
       isModelDialogOpen,
-isVoiceModelDialogOpen,
-isLocalDialogOpen,      isAgentConfigDialogOpen,
+      isVoiceModelDialogOpen,
       // --- LOCAL FORK ADDITION (Phase 2.2) ---
       isProviderDialogOpen,
       // --- END LOCAL FORK ADDITION ---
@@ -2589,8 +2582,7 @@ isLocalDialogOpen,      isAgentConfigDialogOpen,
       isSettingsDialogOpen,
       isSessionBrowserOpen,
       isModelDialogOpen,
-isVoiceModelDialogOpen,
-isLocalDialogOpen,      isAgentConfigDialogOpen,
+      isVoiceModelDialogOpen,
       // --- LOCAL FORK ADDITION (Phase 2.2) ---
       isProviderDialogOpen,
       // --- END LOCAL FORK ADDITION ---
@@ -2709,9 +2701,8 @@ isLocalDialogOpen,      isAgentConfigDialogOpen,
       exitPrivacyNotice,
       closeSettingsDialog,
       closeModelDialog,
-openVoiceModelDialog,
+      openVoiceModelDialog,
       closeVoiceModelDialog,
-closeLocalDialog,      openAgentConfigDialog,
       // --- LOCAL FORK ADDITION (Phase 2.2) ---
       openProviderDialog,
       closeProviderDialog,
@@ -2816,9 +2807,8 @@ closeLocalDialog,      openAgentConfigDialog,
       exitPrivacyNotice,
       closeSettingsDialog,
       closeModelDialog,
-openVoiceModelDialog,
+      openVoiceModelDialog,
       closeVoiceModelDialog,
-closeLocalDialog,      openAgentConfigDialog,
       // --- LOCAL FORK ADDITION (Phase 2.2) ---
       openProviderDialog,
       closeProviderDialog,

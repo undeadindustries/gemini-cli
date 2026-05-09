@@ -763,9 +763,9 @@ export function isWorktreeEnabled(settings: LoadedSettings): boolean {
  * just gets re-migrated on the next launch.
  */
 function applyLegacyLocalMigration(
-  loadResult: { settings: Settings; rawJson?: string },
+  loadResult: { settings: Settings; rawSettings: Settings; rawJson?: string },
   settingsPath: string,
-): { settings: Settings; rawJson?: string } {
+): { settings: Settings; rawSettings: Settings; rawJson?: string } {
   const migration = migrateLegacyLocalSettings(
     // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- runtime-safe: Settings is always a JSON object at the top level (loadSettings() validated this before reaching here, see line ~840); the migration helper reads only legacy `local.*` keys via Record<string, unknown>
     loadResult.settings as unknown as Record<string, unknown>,
@@ -824,6 +824,7 @@ function applyLegacyLocalMigration(
 
   return {
     settings: migration.newSettings as Settings,
+    rawSettings: migration.newSettings as Settings,
     rawJson: loadResult.rawJson,
   };
 }
@@ -844,9 +845,9 @@ function applyLegacyLocalMigration(
  * with a `providers.custom.local-vllm` already in place are a no-op.
  */
 function applyLegacyLocalPresetMigration(
-  loadResult: { settings: Settings; rawJson?: string },
+  loadResult: { settings: Settings; rawSettings: Settings; rawJson?: string },
   settingsPath: string,
-): { settings: Settings; rawJson?: string } {
+): { settings: Settings; rawSettings: Settings; rawJson?: string } {
   const migration = migrateLegacyLocalPresets(
     // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- runtime-safe: Settings is always a JSON object at the top level (loadSettings() validated this before reaching here, see line ~840); the migration helper reads only legacy `providers.local-*` keys via Record<string, unknown>
     loadResult.settings as unknown as Record<string, unknown>,
@@ -892,6 +893,7 @@ function applyLegacyLocalPresetMigration(
 
   return {
     settings: migration.newSettings as Settings,
+    rawSettings: migration.newSettings as Settings,
     rawJson: loadResult.rawJson,
   };
 }
