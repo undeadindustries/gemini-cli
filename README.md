@@ -1,12 +1,12 @@
 # gemini-cli-custom
 
 > **This is a fork of
-> [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli).** It
-> began as a local LLM bypass — routing requests to any OpenAI-compatible server
-> (vLLM, Ollama, llama.cpp, etc.) — and has since grown into a unified provider
-> system supporting local models, OpenAI, OpenRouter, and any other
-> OpenAI-compatible hosted endpoint, while keeping all upstream Gemini / Vertex
-> AI paths fully intact.
+> [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) (based
+> on upstream v0.45.2).** It began as a local LLM bypass — routing requests to
+> any OpenAI-compatible server (vLLM, Ollama, llama.cpp, etc.) — and has since
+> grown into a unified provider system supporting local models, OpenAI,
+> OpenRouter, and any other OpenAI-compatible hosted endpoint, while keeping all
+> upstream Gemini / Vertex AI paths fully intact.
 >
 > The binary is named `gemini-custom-cli` so it coexists with a standard
 > `gemini-cli` install on the same machine.
