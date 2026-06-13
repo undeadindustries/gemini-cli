@@ -54,7 +54,6 @@ import {
   ASK_USER_TOOL_NAME,
   ENTER_PLAN_MODE_TOOL_NAME,
   EXIT_PLAN_MODE_TOOL_NAME,
-  MEMORY_TOOL_NAME,
 } from '../tools/tool-names.js';
 import { AgentHistoryProvider } from '../context/agentHistoryProvider.js';
 import type { ContextManager } from '../context/contextManager.js';
@@ -795,7 +794,6 @@ export class GeminiClient {
           writeFileToolName: WRITE_FILE_TOOL_NAME,
           exemptTools: new Set([
             ACTIVATE_SKILL_TOOL_NAME,
-            MEMORY_TOOL_NAME,
             ASK_USER_TOOL_NAME,
             ENTER_PLAN_MODE_TOOL_NAME,
             EXIT_PLAN_MODE_TOOL_NAME,
